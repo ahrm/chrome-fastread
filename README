@@ -1,1 +1,6 @@
 A chrome extension to enable faster readability of web pages. Inspired by this hackernews article: https://news.ycombinator.com/item?id=30787290.
+
+**How to install**
+
+1. git clone https://github.com/ahrm/chrome-fastread.git
+2. Follow https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked
