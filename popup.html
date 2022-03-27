@@ -3,11 +3,70 @@
     <head>
         <link rel="stylesheet" href="button.css">
     </head>
+    <style>
+        .button-container{
+          padding: 10px;
+        }
+
+        .button-enabled{
+          background: lightgreen;
+        }
+
+        .button-disabled{
+          background: pink;
+        }
+
+        .label{
+          margin: 5px;
+        }
+
+        .desc{
+          text-align: center;
+          margin: 5px;
+        }
+
+        .div-group{
+          border: 2px;
+          border-style: solid;
+          border-color: black;
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+
+        .small-group{
+          border: 1px;
+          border-style: dotted;
+          border-color: gray;
+          padding: 10px;
+          margin-bottom: 5px;
+        }
+    </style>
+
     <body>
-        <button id="applyButton">Toggle</button>
+        <div class="button-container"><button id="applyButton" >Toggle Page</button></div>
+
+        <div class="div-group">
+        <div class="desc">Customize Styles</div>
+        <div class="small-group">
+        <div class="label">Highlight sheet</div>
         <input type="text" id="highlight-input" name="highlight">
+        </div>
+        <div class="small-group">
+        <div class="label">Rest of the word sheet</div>
         <input type="text" id="rest-input" name="rest">
-        <button id="restore-button">Restore Default Sheets</button>
-        <script src="popup.js"></script>
+        </div>
+        <div class="button-container"><button id="restore-button">Restore Default Sheets</button></div>
+        </div>
+
+        <div class="div-group">
+        <div class="desc">Automatic Mode</div>
+        <div class="button-container"><button id="autoButton">Toggle Auto</button></div>
+        <div class="small-group">
+        <div class="desc">Exclude url pattern from automatic mode </div>
+        <input type="text" id="excludePattern" name="highlight">
+        <div class="button-container"><button id="excludePageButton">Add Exclude Pattern</button></div>
+        </div>
+        </div>
+        <script src="popup.js" type="module"></script>
     </body>
 </html>
