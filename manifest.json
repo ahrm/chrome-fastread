@@ -12,10 +12,10 @@
     "action":{
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "/images/get_started16.png",
-            "32": "/images/get_started32.png",
-            "48": "/images/get_started48.png",
-            "128": "/images/get_started128.png"
+            "16": "/images/sioyek-icon-linux16.png",
+            "32": "/images/sioyek-icon-linux32.png",
+            "48": "/images/sioyek-icon-linux48.png",
+            "128": "/images/sioyek-icon-linux128.png"
         }
     },
     "commands": {
@@ -34,9 +34,9 @@
     },
 
     "icons": {
-        "16": "/images/get_started16.png",
-        "32": "/images/get_started32.png",
-        "48": "/images/get_started48.png",
-        "128": "/images/get_started128.png"
+      "16": "/images/sioyek-icon-linux16.png",
+      "32": "/images/sioyek-icon-linux32.png",
+      "48": "/images/sioyek-icon-linux48.png",
+      "128": "/images/sioyek-icon-linux128.png"
     }
 }
