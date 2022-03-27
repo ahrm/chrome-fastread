@@ -43,30 +43,36 @@
     </style>
 
     <body>
-        <div class="button-container"><button id="applyButton" >Toggle Page</button></div>
+      <div class="button-container"><button id="applyButton" >Toggle Page</button></div>
 
-        <div class="div-group">
-        <div class="desc">Customize Styles</div>
-        <div class="small-group">
-        <div class="label">Highlight sheet</div>
-        <input type="text" id="highlight-input" name="highlight">
-        </div>
-        <div class="small-group">
-        <div class="label">Rest of the word sheet</div>
-        <input type="text" id="rest-input" name="rest">
-        </div>
-        <div class="button-container"><button id="restore-button">Restore Default Sheets</button></div>
-        </div>
-
-        <div class="div-group">
+      <div class="div-group">
         <div class="desc">Automatic Mode</div>
         <div class="button-container"><button id="autoButton">Toggle Auto</button></div>
         <div class="small-group">
-        <div class="desc">Exclude url pattern from automatic mode </div>
-        <input type="text" id="excludePattern" name="highlight">
-        <div class="button-container"><button id="excludePageButton">Add Exclude Pattern</button></div>
+          <div class="desc">Exclude url pattern from automatic mode </div>
+          <input type="text" id="excludePattern" name="highlight">
+          <div class="button-container"><button id="excludePageButton">Add Exclude Pattern</button></div>
         </div>
+      </div>
+
+      <div class="div-group">
+        <div class="desc">Customize Settings</div>
+        <div class="small-group">
+          <div class="label">Highlight sheet</div>
+          <input type="text" id="highlight-input" name="highlight">
         </div>
+        <div class="small-group">
+          <div class="label">Rest of the word sheet</div>
+          <input type="text" id="rest-input" name="rest">
+        </div>
+        <div class="small-group">
+          <div class="label">Algorithm</div>
+          <input type="text" id="algorithmInput" name="algorithm">
+        </div>
+        <div class="button-container"><button id="restore-button">Restore Default Settings</button></div>
+      </div>
+
+
         <script src="popup.js" type="module"></script>
     </body>
 </html>

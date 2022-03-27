@@ -1,5 +1,5 @@
 
-import {fastreadifyPage, patternsInclude, defaultHighlightSheet, defaultRestSheet} from './utils.js';
+import {fastreadifyPage, patternsInclude, defaultHighlightSheet, defaultRestSheet, defaultAlgorithm} from './utils.js';
 
 
 chrome.runtime.onInstalled.addListener(()=>{
@@ -7,7 +7,8 @@ chrome.runtime.onInstalled.addListener(()=>{
       'highlightSheet' : defaultHighlightSheet,
       "restSheet": defaultRestSheet,
       'autoApply': false,
-      'excludedPatterns': []
+      'excludedPatterns': [],
+      'algorithm': defaultAlgorithm
     });
 });
 

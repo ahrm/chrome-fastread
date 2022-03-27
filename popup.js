@@ -1,4 +1,5 @@
-import {fastreadifyPage, patternsInclude, defaultHighlightSheet, defaultRestSheet } from './utils.js';
+
+import {fastreadifyPage, patternsInclude, defaultHighlightSheet, defaultRestSheet, defaultAlgorithm} from './utils.js';
 
 let applyButton = document.getElementById("applyButton");
 let autoButton = document.getElementById("autoButton");
@@ -7,6 +8,7 @@ let excludePageButton = document.getElementById("excludePageButton");
 let restoreButton = document.getElementById("restore-button");
 let highlightSheetInput = document.getElementById('highlight-input');
 let restSheetInput = document.getElementById('rest-input');
+let algorithmInput = document.getElementById('algorithmInput');
 
 var buttonEnabledClass = 'button-enabled';
 var buttonDisabledClass = 'button-disabled';
@@ -77,10 +79,12 @@ function updateAutoApplyText(isAuto){
   }
 }
 
-chrome.storage.sync.get(['highlightSheet', 'restSheet', 'autoApply'], (data) => {
+chrome.storage.sync.get(['highlightSheet', 'restSheet', 'autoApply', 'algorithm'], (data) => {
     highlightSheetInput.value = data.highlightSheet;
     restSheetInput.value = data.restSheet;
+    algorithmInput.value = data.algorithm;
     updateAutoApplyText(data.autoApply);
+
 });
 
 
@@ -92,15 +96,24 @@ restSheetInput.addEventListener("input", async (text) => {
     onRestInputChange();
 });
 
+algorithmInput.addEventListener("input", async (text) => {
+    onAlgorithmInputChange();
+});
+
 
 excludePatternInput.addEventListener("input", async (text) => {
   updateExcludeButtonText();
 });
 
 restoreButton.addEventListener("click", async () => {
-    chrome.storage.sync.set({'highlightSheet' : defaultHighlightSheet, "restSheet": defaultRestSheet});
+    chrome.storage.sync.set({'highlightSheet' : defaultHighlightSheet,
+      "restSheet": defaultRestSheet,
+      "algorithm": defaultAlgorithm
+    }
+    );
     highlightSheetInput.value = defaultHighlightSheet;
     restSheetInput.value = defaultRestSheet;
+    algorithmInput.value = defaultAlgorithm;
 });
     
 
@@ -129,5 +142,10 @@ function onHighlightInputChange(){
 function onRestInputChange(){
     chrome.storage.sync.set({'restSheet': restSheetInput.value});
 }
+
+function onAlgorithmInputChange(){
+    chrome.storage.sync.set({'algorithm': algorithmInput.value});
+}
+
 
 
