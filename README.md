@@ -18,7 +18,7 @@ Note that all numbers and characters are separated by a space. Here is what this
 - 0 1 1 2 0.4
 ^
 ```
-The first character can be either `-` or `+`. If it is `-`, we don't highlight commong english word (for example 'a', 'and', etc.) if it is '+' we highlight all words.
+The first character can be either `-` or `+`. If it is `-`, we don't highlight common english words (for example 'a', 'and', etc.) if it is '+' we highlight all words.
  
 ```
 - 0 1 1 2 0.4
