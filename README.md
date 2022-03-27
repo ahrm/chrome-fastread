@@ -1,4 +1,5 @@
 A chrome extension to enable faster readability of web pages. Inspired by this hackernews article: https://news.ycombinator.com/item?id=30787290.
+
 Firefox version: https://github.com/akay/firefox-fastread
 
 # How to install
