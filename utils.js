@@ -134,7 +134,7 @@ export function fastreadifyPage() {
     }
 
     function fastreadifyNode(node) {
-      if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') return;
+      if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.nodeType === 8) return;
       if ((node.childNodes == undefined) || (node.childNodes.length == 0)) {
         if ((node.textContent != undefined) && (node.tagName == undefined)) {
           var newNode = document.createElement('span');
@@ -171,4 +171,3 @@ export function patternsInclude(patterns, url){
   }
   return false;
 }
-
