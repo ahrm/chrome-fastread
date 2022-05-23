@@ -99,27 +99,29 @@ export function fastreadifyPage() {
 
     function fastreadifyWord(word) {
 
-      function isCommon(word){
-          return commonWords.indexOf(word) != -1;
+      function isCommon(word) {
+        return commonWords.indexOf(word) != -1;
       }
 
-      var index = word.length-1;
+      var index = word.length - 1;
 
       var numBold = 1;
 
       if ((word.length <= 3) && algorithm.exclude) {
-        if (isCommon(word)) return word;
+        if (isCommon(word)) numBold = 0;
       }
-
-      if (index < algorithm.sizes.length){
+      else if (index < algorithm.sizes.length) {
         numBold = algorithm.sizes[index];
       }
-      else{
+      else {
 
         numBold = Math.ceil(word.length * algorithm.restRatio);
       }
 
-      return "<span class=\"fastread-highlight\">" + word.slice(0, numBold) + "</span>" + "<span class=\"fastread-rest\">" + word.slice(numBold) + "</span>";
+      let textHighlight = numBold > 0 ? ("<span class=\"fastread-highlight\">" + word.slice(0, numBold) + "</span>") : "";
+      let textRest = "<span class=\"fastread-rest\">" + word.slice(numBold) + "</span>";
+
+      return textHighlight + textRest;
     }
 
     function fastreadifyText(text) {
