@@ -97,6 +97,16 @@ export function fastreadifyPage() {
       'my'
     ];
 
+    function escapeHTML(unsafe_str) {
+      return unsafe_str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/\'/g, "&#39;")
+        .replace(/\//g, "&#x2F;");
+    }
+
     function fastreadifyWord(word) {
 
       function isCommon(word) {
@@ -140,7 +150,7 @@ export function fastreadifyPage() {
       if ((node.childNodes == undefined) || (node.childNodes.length == 0)) {
         if ((node.textContent != undefined) && (node.tagName == undefined)) {
           var newNode = document.createElement('span');
-          newNode.innerHTML = fastreadifyText(node.textContent);
+          newNode.innerHTML = fastreadifyText(escapeHTML(node.textContent));
           if (node.textContent.length > 20) {
             node.replaceWith(newNode);
           }
