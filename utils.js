@@ -150,7 +150,7 @@ export function fastreadifyPage() {
       if ((node.childNodes == undefined) || (node.childNodes.length == 0)) {
         if ((node.textContent != undefined) && (node.tagName == undefined)) {
           var newNode = document.createElement('span');
-          newNode.innerHTML = fastreadifyText(escapeHTML(node.textContent));
+          newNode.innerHTML = fastreadifyText(node.textContent);
           if (node.textContent.length > 20) {
             node.replaceWith(newNode);
           }
