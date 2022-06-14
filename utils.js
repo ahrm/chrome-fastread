@@ -46,7 +46,7 @@ export function fastreadifyPage() {
   chrome.storage.sync.get(['algorithm'], (data)=>{
     var algorithm = parseAlgorithm(data.algorithm);
 
-    function createStylesheet() {
+    function createStylesheet(document) {
       chrome.storage.sync.get(['highlightSheet', 'restSheet'], function(data) {
         var style = document.createElement('style');
         style.type = 'text/css';
@@ -147,6 +147,11 @@ export function fastreadifyPage() {
 
     function fastreadifyNode(node) {
       if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.nodeType === 8) return;
+
+      if (node.tagName === 'IFRAME' && node.contentDocument) {
+        createStylesheet(node.contentDocument);
+        fastreadifyNode(node.contentDocument.body);
+      }
       if ((node.childNodes == undefined) || (node.childNodes.length == 0)) {
         if ((node.textContent != undefined) && (node.tagName == undefined)) {
           var newNode = document.createElement('span');
@@ -167,7 +172,7 @@ export function fastreadifyPage() {
       deleteStyleSheet();
     }
     else{
-      createStylesheet();
+      createStylesheet(document);
       fastreadifyNode(document.body);
     }
   });
