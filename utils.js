@@ -56,7 +56,7 @@ export function fastreadifyPage() {
       });
     }
 
-    function deleteStyleSheet() {
+    function deleteStyleSheet(document) {
       var sheet = document.getElementById('fastread-style-id');
       sheet.remove();
     }
@@ -168,8 +168,20 @@ export function fastreadifyPage() {
       }
     }
 
+    function deleteStyleSheetIframe(node) {
+      if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.nodeType === 8) return;
+
+      if (node.tagName === 'IFRAME' && node.contentDocument) {
+        deleteStyleSheet(node.contentDocument);
+      }
+      for(var child of node.childNodes) {
+        deleteStyleSheetIframe(child);
+      }
+    }
+
     if (hasStyleSheet()){
-      deleteStyleSheet();
+      deleteStyleSheet(document);
+      deleteStyleSheetIframe(document)
     }
     else{
       createStylesheet(document);
